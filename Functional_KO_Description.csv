@@ -1,0 +1,41 @@
+Reads,Species,Descriptions
+3077,cpapaya,"fabG, OAR1; 3-oxoacyl-[acyl-carrier protein] reductase [EC:1.1.1.100]"
+2983,cpapaya,"pdtaS; two-component system, sensor histidine kinase PdtaS [EC:2.7.13.3]"
+9047,cpapaya,TC.FEV.OM; iron complex outermembrane recepter protein   
+2650,cpapaya,"infB, MTIF2; translation initiation factor IF-2"
+5311,cpapaya,"TC.HAE1; hydrophobic/amphiphilic exporter-1 (mainly G- bacteria), HAE1 family"
+6570,cpapaya,mcp; methyl-accepting chemotaxis protein     
+3268,cpapaya,"ABCB-BAC; ATP-binding cassette, subfamily B, bacterial   "
+3552,cpapaya,K07497; putative transposase
+3323,cpapaya,rne; ribonuclease E [EC:3.1.26.12]
+3548,cpapaya,fhaB; filamentous hemagglutinin      
+2417,vcauliflora,"fabG, OAR1; 3-oxoacyl-[acyl-carrier protein] reductase [EC:1.1.1.100]"
+3081,vcauliflora,"pdtaS; two-component system, sensor histidine kinase PdtaS [EC:2.7.13.3]"
+3143,vcauliflora,TC.FEV.OM; iron complex outermembrane recepter protein   
+2123,vcauliflora,"infB, MTIF2; translation initiation factor IF-2"
+2554,vcauliflora,"TC.HAE1; hydrophobic/amphiphilic exporter-1 (mainly G- bacteria), HAE1 family"
+3433,vcauliflora,mcp; methyl-accepting chemotaxis protein     
+7014,vcauliflora,"ABCB-BAC; ATP-binding cassette, subfamily B, bacterial   "
+2590,vcauliflora,K07497; putative transposase
+1348,vcauliflora,rne; ribonuclease E [EC:3.1.26.12]
+1113,vcauliflora,fhaB; filamentous hemagglutinin      
+3113,vcundinamarcensis,"fabG, OAR1; 3-oxoacyl-[acyl-carrier protein] reductase [EC:1.1.1.100]"
+2977,vcundinamarcensis,"pdtaS; two-component system, sensor histidine kinase PdtaS [EC:2.7.13.3]"
+9072,vcundinamarcensis,TC.FEV.OM; iron complex outermembrane recepter protein   
+2692,vcundinamarcensis,"infB, MTIF2; translation initiation factor IF-2"
+5299,vcundinamarcensis,"TC.HAE1; hydrophobic/amphiphilic exporter-1 (mainly G- bacteria), HAE1 family"
+6528,vcundinamarcensis,mcp; methyl-accepting chemotaxis protein     
+3297,vcundinamarcensis,"ABCB-BAC; ATP-binding cassette, subfamily B, bacterial   "
+3565,vcundinamarcensis,K07497; putative transposase
+3391,vcundinamarcensis,rne; ribonuclease E [EC:3.1.26.12]
+3568,vcundinamarcensis,fhaB; filamentous hemagglutinin      
+2435,vgoudotiana,"fabG, OAR1; 3-oxoacyl-[acyl-carrier protein] reductase [EC:1.1.1.100]"
+3077,vgoudotiana,"pdtaS; two-component system, sensor histidine kinase PdtaS [EC:2.7.13.3]"
+3134,vgoudotiana,TC.FEV.OM; iron complex outermembrane recepter protein   
+2138,vgoudotiana,"infB, MTIF2; translation initiation factor IF-2"
+2538,vgoudotiana,"TC.HAE1; hydrophobic/amphiphilic exporter-1 (mainly G- bacteria), HAE1 family"
+3409,vgoudotiana,mcp; methyl-accepting chemotaxis protein     
+7050,vgoudotiana,"ABCB-BAC; ATP-binding cassette, subfamily B, bacterial   "
+2563,vgoudotiana,K07497; putative transposase
+1371,vgoudotiana,rne; ribonuclease E [EC:3.1.26.12]
+1092,vgoudotiana,fhaB; filamentous hemagglutinin      

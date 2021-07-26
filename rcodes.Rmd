@@ -1,0 +1,99 @@
+---
+title: "seedmetagenomics"
+author: "Karthik"
+date: "26/07/2021"
+output: html_document
+---
+
+```{r}
+```{r}
+library(plyr)
+library(colorspace)
+library(ggplot2)
+library(tidyverse)
+library(car)
+library(emmeans)
+library(vegan)
+library(lattice)
+library(rcompanion)
+library(ggpubr)
+library(ggsci)
+library(gridExtra)
+library(raster)
+library(rgdal)
+library(raster)
+library(phyloseq)
+```
+
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{}
+############  MAP 
+raster::getData('GADM', country='IND', level=0) 
+ma.dem1<-getData("SRTM", lon=77.4960, lat=13.1348)
+ma.dem2<-getData("SRTM", lon=76.7115, lat=11.4190)
+plot(ma.dem1)
+plot(ma.dem2)
+plot(ma.s, add=TRUE)
+points(76.7115, 11.4190, pch=21, bg="red", cex=2)
+points(77.4960, 13.1348, pch=21, bg="skyblue2", cex=2)
+scalebar(d=200, below="km", type="bar", divs=4, xy=c(73.5,10.3), lonlat=TRUE, cex=1)
+
+
+```{r}
+
+dddddd<-ggplot(X16species, aes(x=seeds, y=READS,fill=Species))+geom_bar(stat="identity",position="fill")+labs(y = "Abundance (%)",fill="Bacteria > Species",x="Species of the seeds",title="")+scale_y_continuous(labels = scales::percent)+theme_classic2()+theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold"))+ scale_fill_manual(values=col)
+
+dmk<-dddddd + scale_x_discrete(limit = c("C. papaya", "V. cauliflora", "V. cundinamarcensis", "V. goudotiana"), labels = c("C.pa", "V.ca", "V.cu", "V.go"))
+
+ggsave("16s_species.jpg",dmk+theme(axis.title.x = element_text(size = 14,face="bold"),axis.title.y = element_text(size = 12,face="bold")),width = 7,height = 4.2,units = "in",dpi = 1200, family="TT Times New Roman")
+
+cruise<-ggplot(X16S_otus, aes(x=Seeds, y=READS,fill=Phylum))+geom_bar(stat="identity",position="fill")+labs(y = "Abundance (%)",fill="Bacteria > Phylum",x="Species of the seeds",title="")+scale_y_continuous(labels = scales::percent)+theme_classic2()+theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold")) + scale_fill_manual(values = col)
+
+ad<-cruise+ scale_x_discrete(limit = c("C. papaya", "V. cauliflora", "V. cundinamarcensis", "V. goudotiana"), labels = c("C.pa", "V.ca", "V.cu", "V.go"))
+
+ggsave("16s_phylum.jpg",ad+theme(axis.title.x = element_text(size = 14,face="bold"),axis.title.y = element_text(size = 12,face="bold")),width = 7,height = 4.2,units = "in",dpi = 1200, family="TT Times New Roman")
+
+
+######## taxonomy 
+dddddd<-ggplot(X16species, aes(x=seeds, y=READS,fill=Species))+geom_bar(stat="identity",position="fill")+labs(y = "Abundance (%)",fill="Bacteria > Species",x="Species of the seeds",title="")+scale_y_continuous(labels = scales::percent)+theme_classic2()+theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold"))+ scale_fill_manual(values=col)
+dmk<-dddddd + scale_x_discrete(limit = c("C. papaya", "V. cauliflora", "V. cundinamarcensis", "V. goudotiana"), labels = c("C.pa", "V.ca", "V.cu", "V.go"))
+ggsave("16s_species.jpg",dmk+theme(axis.title.x = element_text(size = 14,face="bold"),axis.title.y = element_text(size = 12,face="bold")),width = 7,height = 4.2,units = "in",dpi = 1200, family="TT Times New Roman")
+cruise<-ggplot(X16S_otus, aes(x=Seeds, y=READS,fill=Phylum))+geom_bar(stat="identity",position="fill")+labs(y = "Abundance (%)",fill="Bacteria > Phylum",x="Species of the seeds",title="")+scale_y_continuous(labels = scales::percent)+theme_classic2()+theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold")) + scale_fill_manual(values = col)
+ad<-cruise+ scale_x_discrete(limit = c("C. papaya", "V. cauliflora", "V. cundinamarcensis", "V. goudotiana"), labels = c("C.pa", "V.ca", "V.cu", "V.go"))
+ggsave("16s_phylum.jpg",ad+theme(axis.title.x = element_text(size = 14,face="bold"),axis.title.y = element_text(size = 12,face="bold")),width = 7,height = 4.2,units = "in",dpi = 1200, family="TT Times New Roman")
+
+
+iiiii<-ggplot(ITS_otus, aes(x=Seeds, y=READS,fill=Genus))+geom_bar(stat="identity",position="fill")+labs(y = "Abundance (%)",fill="Fungi > Genus",x="Species of the seeds",title="")+scale_y_continuous(labels = scales::percent)+theme_classic2()+theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold"))+ scale_fill_manual(values=col)
+ggsave("ITS_Genus.jpg",iiiii+theme(axis.title.x = element_text(size = 14,face="bold"),axis.title.y = element_text(size = 12,face="bold")),width = 7,height = 4.2,units = "in",dpi = 1200, family="TT Times New Roman")
+jjjjj<-ggplot(ITS_otus, aes(x=Seeds, y=READS,fill=Phylum))+geom_bar(stat="identity",position="fill")+labs(y = "Abundance (%)",fill="Fungi > Phylum",x="Species of the seeds",title="")+scale_y_continuous(labels = scales::percent)+theme_classic2()+theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold"))+ scale_fill_manual(values=col)
+ggsave("ITS_phylum.jpg",jjjjj+theme(axis.title.x = element_text(size = 14,face="bold"),axis.title.y = element_text(size = 12,face="bold")),width = 7,height = 4.2,units = "in",dpi = 1200, family="TT Times New Roman")
+
+
+
+################cap plot
+
+library(ggplot2)
+otu<-import_biom("otu_table.biom")
+map<-import_qiime_sample_data("metadata2.tsv")
+data <- merge_phyloseq(otu, map)
+ordcap = ordinate(data, "CAP", "bray", ~sample)
+plot<-plot_ordination(data, ordcap, "sample", color="sample")
+ggsave(file=paste0("CAP.tiff"), plot, width = 18, dpi = 300, units = "cm", device='tiff')
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
